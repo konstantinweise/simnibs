@@ -1370,11 +1370,11 @@ def middle_gm_interpolation(mesh_fn, m2m_folder, out_folder, out_fsaverage=None,
     mesh_fn: str
         String with file name to mesh
     m2m_folder: str
-        Path to the m2m_{subject_id} folder, generated during the segmantation
+        Path to the m2m_{subject_id} folder, generated during the segmentation
     out_folder: str
         Name of output folder. Output files will be written to this folder
     out_fsaverage: str (optional)
-        Name of output folder for transformed files. In not set, fsaverage transormation
+        Name of output folder for transformed files. In not set, fsaverage transformation
         will not be performed
     depth: float (optional)
         The distance bewteen grey and white matter where the
@@ -1414,7 +1414,7 @@ def middle_gm_interpolation(mesh_fn, m2m_folder, out_folder, out_fsaverage=None,
     m = mesh_io.read_msh(mesh_fn)
     subdir, sim_name = os.path.split(mesh_fn)
     sim_name = '.' + os.path.splitext(sim_name)[0]
-    # Crio out GM
+    # Crop out GM
     m = m.crop_mesh(2)
     if not os.path.isdir(out_folder):
         os.mkdir(out_folder)
