@@ -1114,26 +1114,26 @@ class TMSLIST(SimuList):
                      matsimnibs_list, didt_list, output_names, geo_names,
                      solver_options=self.solver_options, n_workers=cpus)
 
-        logger.info('Creating visualizations')
-        summary = ''
-        for p, n, g, s in zip(self.pos, output_names, geo_names, fn_simu):
-            p.fnamefem = n
-            m = mesh_io.read_msh(n)
-            v = m.view(
-                visible_tags=_surf_preferences(m),
-                visible_fields=_field_preferences(self.postprocess))
-            v.add_merge(g)
-            v.write_opt(n)
-
-            if view:
-                mesh_io.open_in_gmsh(n, True)
-
-            summary += f'\n{os.path.split(s)[1][:-1]}\n'
-            summary += len(os.path.split(s)[1][:-1]) * '=' + '\n'
-            summary += 'Gray Matter\n\n'
-            summary += m.fields_summary(roi=2)
-
-        logger.log(25, summary)
+        # logger.info('Creating visualizations')
+        # summary = ''
+        # for p, n, g, s in zip(self.pos, output_names, geo_names, fn_simu):
+        #     p.fnamefem = n
+        #     m = mesh_io.read_msh(n)
+        #     v = m.view(
+        #         visible_tags=_surf_preferences(m),
+        #         visible_fields=_field_preferences(self.postprocess))
+        #     v.add_merge(g)
+        #     v.write_opt(n)
+        #
+        #     if view:
+        #         mesh_io.open_in_gmsh(n, True)
+        #
+        #     summary += f'\n{os.path.split(s)[1][:-1]}\n'
+        #     summary += len(os.path.split(s)[1][:-1]) * '=' + '\n'
+        #     summary += 'Gray Matter\n\n'
+        #     summary += m.fields_summary(roi=2)
+        #
+        # logger.log(25, summary)
 
         del cond
         gc.collect()
