@@ -1759,7 +1759,7 @@ def make_splits(mesh, testpoints, nsplits="auto"):
         assert isinstance(nsplits,int)
         assert nsplits > 0
 
-    splits = np.linspace(split_min, split_max, nsplits)
+    splits = np.linspace(split_min, split_max, int(nsplits))
 
     if len(splits) > 1:
         split_size = splits[1]-splits[0]
